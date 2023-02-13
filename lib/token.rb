@@ -2,8 +2,8 @@ class Token
   def initialize(token)
     @token = token
   end
-  
-  def place_token(marker, position)
-    
+
+  def to_s
+    @token
   end
 end
