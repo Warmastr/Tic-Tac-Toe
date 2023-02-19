@@ -11,7 +11,7 @@ class Game
   def play
     current_player = ""
     player_turn = 1 # player 1 plays on odd numbers
-    puts "Place your marker on an empty location. \nIt will look like this:   \'11\', \'12\', \'31\' etc."
+    puts "Place your marker on an empty location. \nType it like this:   \'11\', \'12\', \'31\' etc."
     # Create a loop based on 9 possible turns that starts with player 1.
     until @board.board.all?(/X|O/) || win_condition?() == true
       if player_turn % 2 == 0
@@ -33,10 +33,12 @@ class Game
           else
             @board.board[temp_location] = current_player.token
           end
+          clear
           puts @board
           player_turn += 1
           else
           puts "You must select a proper location (\'11\', \'23\', \'32\' etc.)"
+          clear
           puts @board
           next
         end
@@ -63,5 +65,9 @@ class Game
         end
       end
     end
+  end
+
+  def clear
+    print "\e[2J\e[H"
   end
 end
