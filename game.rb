@@ -11,6 +11,7 @@ class Game
   def play
     current_player = ""
     player_turn = 1 # player 1 plays on odd numbers
+    puts @board
     puts "Place your marker on an empty location. \nType it like this:   \'11\', \'12\', \'31\' etc."
     # Create a loop based on 9 possible turns that starts with player 1.
     until @board.board.all?(/X|O/) || win_condition?() == true
